@@ -1,11 +1,11 @@
-import rootReducer from './Reducer';
+import weatherReducer from './Reducer';
 import {storageReducer} from './Reducer';
 import { createStore, combineReducers } from 'redux';
 
 
 const store = createStore(
     combineReducers({
-        rootReducer,
+        weatherReducer,
         storageReducer
     })
 );

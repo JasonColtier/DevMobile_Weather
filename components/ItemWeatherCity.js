@@ -29,7 +29,7 @@ class FavoriteCityList extends React.Component {
     };
 
     componentDidMount() {
-        Store.getState().getWeatherHome(this.props.cityName).then((resp) => {
+        Store.getState().weatherReducer.serv.getWeatherHome(this.props.cityName).then((resp) => {
             this.setState({ weather: resp.data });
         }).catch(
         )

@@ -9,7 +9,7 @@ import { ActivityIndicator } from 'react-native-paper';
 import ItemWeatherCity from '../components/ItemWeatherCity';
 import { SwipeRow } from 'react-native-swipe-list-view';
 import FeatherIcon from 'react-native-vector-icons/Feather';
-
+import Store from "../redux/Store";
 
 
 class FavoritePage extends React.Component {
@@ -56,7 +56,8 @@ class FavoritePage extends React.Component {
 
     //récupération des variables avec un délai
     componentDidMount() {
-        console.log(this.props.navigation)
+        Store.dispatch({type : 'GET_CITIES'});
+        console.log(Store);
         this.props.navigation.setParams({onGoBack : this.onGoBack});
         this.refresh();
         

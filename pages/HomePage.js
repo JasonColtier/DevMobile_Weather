@@ -12,8 +12,6 @@ import Actions from '../redux/Action';
 import { connect } from 'react-redux';
 import { Provider } from 'react-redux';
 import Store from '../redux/Store';
-import store from '../redux/Store';
-// import store from './store'
 
 
 class HomePage extends React.Component {
@@ -30,7 +28,6 @@ class HomePage extends React.Component {
 
 
     componentDidMount() {
-        console.log(store.getState().rootReducer.serv);
         // Store.subscribe(() => console.log('store state : ',Store.getState()));
         // Store.dispatch({ type: 'WEATHER_SERV' });
 
@@ -42,14 +39,14 @@ class HomePage extends React.Component {
             AsyncStorage.getItem('currentFavorite').then((data) => {
 
                 if(data != null){
-                    Store.getState().rootReducer.serv.getWeatherHome(JSON.parse(data)).then((resp) => {
+                    Store.getState().weatherReducer.serv.getWeatherHome(JSON.parse(data)).then((resp) => {
                         this.setState({ weather: resp.data });
     
                     }).catch(
                         // console.log('pas de données trouvées')
                     )
                 }else{
-                    this.serv.getWeatherHome("Paris").then((resp) => {
+                    Store.getState().weatherReducer.serv.getWeatherHome("paris").then((resp) => {
                         this.setState({ weather: resp.data });
     
                     }).catch(

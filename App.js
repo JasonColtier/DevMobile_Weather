@@ -5,7 +5,11 @@ import { CreateAppContainer } from 'react-navigation';
 import {createStore} from 'redux';
 
 class App extends React.Component {
+
+  // let store = createStore(counter)
+
   render(){
+
     return (
         <AppContainer />
     );

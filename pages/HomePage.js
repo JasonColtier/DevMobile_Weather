@@ -7,7 +7,10 @@ import Colors from '../uiStyle/Colors';
 import Loading from '../components/Loading';
 import Styles from '../uiStyle/Styles';
 import { NavigationEvents } from 'react-navigation';
-import WeatherIcon from '../uiStyle/WeatherIcon'
+import WeatherIcon from '../uiStyle/WeatherIcon';
+
+import { Provider } from 'react-redux'
+// import store from './store'
 
 
 class HomePage extends React.Component {

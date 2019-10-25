@@ -8,7 +8,6 @@ import Loading from '../components/Loading';
 import Styles from '../uiStyle/Styles';
 import { NavigationEvents } from 'react-navigation';
 import WeatherIcon from '../uiStyle/WeatherIcon';
-import Actions from '../redux/Action';
 import { connect } from 'react-redux';
 import { Provider } from 'react-redux';
 import Store from '../redux/Store';

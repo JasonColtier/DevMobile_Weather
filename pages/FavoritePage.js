@@ -56,8 +56,10 @@ class FavoritePage extends React.Component {
 
     //récupération des variables avec un délai
     componentDidMount() {
-        Store.dispatch({type : 'GET_CITIES'});
-        console.log(Store);
+        Store.subscribe(() => console.log('store state : ',Store.getState().storageReducer));
+        
+        console.log(Store.dispatch({type : 'GET_CITIES'}));
+ 
         this.props.navigation.setParams({onGoBack : this.onGoBack});
         this.refresh();
         
@@ -65,6 +67,7 @@ class FavoritePage extends React.Component {
 
     refresh() {//appelé tout le temps par le onDidFocus
         this.setState({refreshing : true});
+        console.log(Store.getState().storageReducer);
         AsyncStorage.getItem('cities').then((data) => {
             if(data != null){
                 this.setState({ cities: JSON.parse(data).sort() , refreshing : false});

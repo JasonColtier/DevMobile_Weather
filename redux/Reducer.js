@@ -6,7 +6,7 @@ const initialStateWeather = {
 };
 
 const initialStateCities = {
-    cities: []
+    cities: ["PARIS"]
 }
 
 
@@ -15,19 +15,21 @@ export const storageReducer = (state = initialStateCities, action) => {
         case 'ADD_CITIES':
             state.cities.push(action.cityName)
             AsyncStorage.setItem('cities', JSON.stringify(state.cities)).then(() => {
-
+                
             }).catch((err) => {
                 alert(err)
             })
 
             break;
         case 'GET_CITIES':
-            AsyncStorage.getItem('cities').then((data) => {
-                state.cities = JSON.parse(data).sort();
+            
+            AsyncStorage.getItem('cities').then(() => {
+                
             }).catch((err) => {
                 alert(err)
-            });
-            return (state.cities);
+            })
+           
+            
     }
     return state;
 };

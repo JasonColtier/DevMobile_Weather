@@ -1,8 +1,14 @@
-import rootReducer from './Reducer'
-import { createStore } from 'redux';
+import rootReducer from './Reducer';
+import {storageReducer} from './Reducer';
+import { createStore, combineReducers } from 'redux';
 
 
-const store = createStore(rootReducer);
+const store = createStore(
+    combineReducers({
+        rootReducer,
+        storageReducer
+    })
+);
 
 
 

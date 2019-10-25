@@ -1,11 +1,27 @@
 import WeatherService from '../services/Weather-services';
 
-const initialState = {
-    citiesList : [],
+const initialStateWeather = {
     serv : new WeatherService(console.log("new weather service")),
 };
 
-const rootReducer = (state = initialState, action) => {
+const initialStateCities = {
+    cities : []
+}
+
+
+export const storageReducer = (state = initialStateCities, action) =>{
+    switch(action.type){
+        case 'GET_CITIES':
+            return(
+                state
+            );
+    }
+    return state;
+};
+
+
+
+const rootReducer = (state = initialStateWeather, action) => {
     switch(action.type){
         case 'WEATHER_SERV':
             return(

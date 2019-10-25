@@ -6,6 +6,7 @@ class SettingsPage extends React.Component {
 
     deleteFavoritesPress() {
         AsyncStorage.removeItem('cities').then(()=> alert('Favoris Supprimés'));
+        AsyncStorage.removeItem('currentFavorite').then();
     }
     
     render() {

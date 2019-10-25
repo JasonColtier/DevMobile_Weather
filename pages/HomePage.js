@@ -32,12 +32,22 @@ class HomePage extends React.Component {
         this.props.navigation.addListener('didFocus', () =>
             AsyncStorage.getItem('currentFavorite').then((data) => {
 
-                this.serv.getWeatherHome(JSON.parse(data)).then((resp) => {
-                    this.setState({ weather: resp.data });
-
-                }).catch(
-                    // console.log('pas de données trouvées')
-                )
+                if(data != null){
+                    this.serv.getWeatherHome(JSON.parse(data)).then((resp) => {
+                        this.setState({ weather: resp.data });
+    
+                    }).catch(
+                        // console.log('pas de données trouvées')
+                    )
+                }else{
+                    this.serv.getWeatherHome("Paris").then((resp) => {
+                        this.setState({ weather: resp.data });
+    
+                    }).catch(
+                        // console.log('pas de données trouvées')
+                    )
+                }
+                
             }).catch((err) => {
                 alert(err)
             })

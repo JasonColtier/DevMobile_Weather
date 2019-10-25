@@ -8,6 +8,7 @@ import Loading from '../components/Loading';
 import Styles from '../uiStyle/Styles';
 import { NavigationEvents } from 'react-navigation';
 import WeatherIcon from '../uiStyle/WeatherIcon';
+import Actions from '../redux/Action';
 
 import { Provider } from 'react-redux'
 // import store from './store'
@@ -15,7 +16,7 @@ import { Provider } from 'react-redux'
 
 class HomePage extends React.Component {
 
-    serv = new WeatherService();
+    // serv = new WeatherService();
 
     //on utilise setState pour mettre à jour, ce qui enclanche le didMount
     state = {
@@ -25,9 +26,10 @@ class HomePage extends React.Component {
     }
 
 
+
     //se fait après le render
     componentDidMount() {
-
+        store.get
         this.refresh();
     }
 

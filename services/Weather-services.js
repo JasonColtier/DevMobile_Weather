@@ -5,6 +5,7 @@ const key='245a60820ad2eb207b25f8dd5fa4b5a0';
 const url=`http://api.openweathermap.org/data/2.5/weather?appid=${key}&units=metric`;
 
 class WeatherService{
+   
 
     getWeatherHome(ville){//retourne un bel objet weather
        

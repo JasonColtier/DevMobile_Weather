@@ -3,11 +3,12 @@ import { Text, View ,AsyncStorage} from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
 import Styles from '../uiStyle/Styles';
 import PropTypes from 'prop-types';
-import WeatherService from '../services/Weather-services';
+// import WeatherService from '../services/Weather-services';
 import { Button } from 'react-native-paper';
 import WeatherIcon from '../uiStyle/WeatherIcon';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
+import Store from "../redux/Store"
 
 //component affiché en attendant que Weather reçoive les données
 class FavoriteCityList extends React.Component {
@@ -15,7 +16,7 @@ class FavoriteCityList extends React.Component {
     static navigationOptions = (data) => {
         const {navigation} = data;
     }
-    serv = new WeatherService();
+    // serv = new WeatherService();
 
     state = {
         weather: null
@@ -28,7 +29,7 @@ class FavoriteCityList extends React.Component {
     };
 
     componentDidMount() {
-        this.serv.getWeatherHome(this.props.cityName).then((resp) => {
+        Store.getState().getWeatherHome(this.props.cityName).then((resp) => {
             this.setState({ weather: resp.data });
         }).catch(
         )

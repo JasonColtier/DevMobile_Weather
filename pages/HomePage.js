@@ -9,9 +9,9 @@ import Styles from '../uiStyle/Styles';
 import { NavigationEvents } from 'react-navigation';
 import WeatherIcon from '../uiStyle/WeatherIcon';
 import Actions from '../redux/Action';
-import { connect } from 'react-redux'
-
-import { Provider } from 'react-redux'
+import { connect } from 'react-redux';
+import { Provider } from 'react-redux';
+import Store from '../redux/Store';
 // import store from './store'
 
 
@@ -19,17 +19,18 @@ class HomePage extends React.Component {
 
     // serv = new WeatherService();
 
+    
+
     //on utilise setState pour mettre à jour, ce qui enclanche le didMount
     state = {
         weather: null,
         cities: [],
-
     }
 
 
-
-    //se fait après le render
     componentDidMount() {
+        // Store.subscribe(() => console.log('store state : ',Store.getState()));
+        Store.dispatch({ type: 'WEATHER_SERV' });
 
         this.refresh();
     }
@@ -39,7 +40,7 @@ class HomePage extends React.Component {
             AsyncStorage.getItem('currentFavorite').then((data) => {
 
                 if(data != null){
-                    this.serv.getWeatherHome(JSON.parse(data)).then((resp) => {
+                    Store.getState().getWeatherHome(JSON.parse(data)).then((resp) => {
                         this.setState({ weather: resp.data });
     
                     }).catch(

@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import App from './components/App';
 import WeatherService from '../services/Weather-services';
 import {getWeatherService} from './Action';
 
@@ -11,7 +10,7 @@ const initialState = {
     // serv = new WeatherService(),
 };
 
-function rootReducer(state = initialState, action){
+const rootReducer = (state = initialState, action) => {
     switch(action.type){
         case 'ADD_CITIES':
             state.citiesList.push(action.city);
@@ -23,4 +22,4 @@ function rootReducer(state = initialState, action){
     return state;
 };
 
-export default store;
+export default rootReducer;

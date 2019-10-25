@@ -4,10 +4,13 @@ import AppContainer from './navigation/AppNavigator';
 import { CreateAppContainer } from 'react-navigation';
 import {createStore} from 'redux';
 import { Provider } from 'react-native-paper';
-import {rootReducer} from './redux/Reducer';
+import rootReducer from './redux/Reducer';
+
+const store = createStore(rootReducer);
 
 class App extends React.Component {
 
+  
   render(){
 
     return (
@@ -18,7 +21,7 @@ class App extends React.Component {
   }
 }
 
-const store = createStore(rootReducer);
+
 
 export default App; 
 

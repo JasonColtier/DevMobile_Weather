@@ -9,6 +9,7 @@ import Styles from '../uiStyle/Styles';
 import { NavigationEvents } from 'react-navigation';
 import WeatherIcon from '../uiStyle/WeatherIcon';
 import Actions from '../redux/Action';
+import { connect } from 'react-redux'
 
 import { Provider } from 'react-redux'
 // import store from './store'
@@ -29,7 +30,7 @@ class HomePage extends React.Component {
 
     //se fait après le render
     componentDidMount() {
-        store.get
+
         this.refresh();
     }
 
